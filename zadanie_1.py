@@ -2,9 +2,9 @@
 
 podstawa = 10
 wysokosc = 5
-wynik = (podstawa * wysokosc)/2
+pole_trojkata = (podstawa * wysokosc)/2
 
-print ("Pole trojkąta wyniosi: ", wynik)
+print ("Pole trojkąta wyniosi: ", pole_trojkata)
 
 # policz pole kola o promieniu 7
 
