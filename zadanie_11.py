@@ -6,3 +6,5 @@ if x <= 10:
         print("Jesteś w LOR")
     elif y >10 and y < 10:
         print 
+        
+        
