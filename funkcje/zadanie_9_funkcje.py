@@ -9,13 +9,28 @@ magazyn = {
     'woda': 10,
 }
 
+def oferta():
+    print("Nasz sklep oferuje: ")
+    for produkt, cena in produkty.items():
+        print(f' - {produkt} - {cena:.2f}')
+
+def brak_towaru(zakup):
+    print()
+    print("!! Nie ma tyle w magazynie !!")
+    print(f"W magazynie pozostało: {magazyn[zakup]}")
+    print()
+def zakup_towaru(zakup):
+    cena = produkty.get(zakup)
+    koszt = waga * produkty[zakup]
+    print(f"Za [{zakup}] zapłacisz: {koszt:.2f}")
+    magazyn[zakup] -= waga
+
+
 while True:
     rola = input("Czy jesteś [klient]em [k], czy [dostawca][d], [q] by zakończyć? ")
     if rola.lower() in ['klient', 'k']:
         while True:
-            print("Nasz sklep oferuje: ")
-            for produkt, cena in produkty.items():
-                print(f' - {produkt} - {cena:.2f}')
+            oferta()
             zakup = input("Co chcesz kupić? [k] by zakończyć: ")
             if zakup.lower() == 'k':
                 print("Zapraszamy ponownie")
@@ -25,15 +40,9 @@ while True:
                 continue
             waga = float(input(f"Ile chcesz kupić - [{zakup}]: "))
             if waga > magazyn[zakup]:
-                print()
-                print("!! Nie ma tyle w magazynie !!")
-                print(f"W magazynie pozostało: {magazyn[zakup]}")
-                print()
+                brak_towaru(zakup)
             else:
-                cena = produkty.get(zakup)
-                koszt = waga * produkty[zakup]
-                print(f"Za [{zakup}] zapłacisz: {koszt:.2f}")
-                magazyn[zakup] -= waga
+                zakup_towaru(zakup)
 
     elif rola.lower() in ['dostawca', 'd']:
         # ścieżka dostawcy
