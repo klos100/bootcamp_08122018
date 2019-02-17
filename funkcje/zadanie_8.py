@@ -8,9 +8,9 @@ def italic(funkcja):
     def wrapper(*args, **kwargs):
         return f'<i>{funkcja(*args,**kwargs)}</i>'
     return wrapper
-
-@italic
 @bold
+@italic
+
 def foo(arg):
     return f"To jest {arg}"
 

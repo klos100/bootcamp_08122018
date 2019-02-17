@@ -90,6 +90,53 @@ def walka(atakujacy, broniacy):
     print(broniacy)
 
 
+class Polozenie():
+    def __init__(self, x, y, zasieg_x, zasieg_y):
+        self.x = x
+        self.y = y
+        self.zasieg_x = zasieg_x
+        self.zasieg_y = zasieg_y
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+    def s(self):
+        print("Nacisnieto s")
+        pass
+
+    def a(self):
+        print("Nacisnieto a")
+        pass
+
+    def w(self):
+        print("Nacisnieto w")
+        pass
+
+    def d(self):
+        print("Nacisnieto d")
+        pass
+
+
+polozenie_gracza = Polozenie(1, 1, 10, 10)
+
+while True:
+    kierunek = input("Podaj kierunek: w -gora, s-dol, a-lewo, d-prawo")
+    # if w
+    getattr(polozenie_gracza, kierunek)()
+
+
+class Plansza:
+    def __init__(self,gracz,wrog,skarb,x=10,y=10):
+        self.gracz = gracz
+        self.wrog = wrog
+        self.skarb =skarb
+        self.x = x
+        self.y = y
+
+        self.polozenie_gracza = Polozenie(randint(1,self.x))
+
+
+
 walka(rufus, janusz)
 
 
