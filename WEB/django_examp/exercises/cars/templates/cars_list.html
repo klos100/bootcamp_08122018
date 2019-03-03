@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista samochodow</title>
+</head>
+<body>
+
+<table class="table-striped">
+    <thead>
+    <th>Marka</th>
+    <th>Model</th>
+    <th>Rok</th>
+    <th>Typ nadwozia</th>
+    </thead>
+    <tbody>
+        {%for car in cars%}
+        <tr>
+            <td><a href="/cars/{{car.id}}"> {{car.brand}}</a></td>
+            <td>{{car.model}}</td>
+            <td>{{car.prod_year}}</td>
+            <td>{{car.body_type}}</td>
+        </tr>
+        {%endfor%}
+    </tbody>
+
+</table>
+</body>
+</html>
